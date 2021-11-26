@@ -9,7 +9,7 @@ const Table = ({titles, dataDefault}) => {
   const itemsPerPage = 30;
   const lastIndex = currentPage * itemsPerPage;
   const firstIndex = lastIndex - itemsPerPage;
-  console.log(data, lastIndex, firstIndex);
+  // console.log(data, lastIndex, firstIndex);
   const dataPerPage = data.slice(firstIndex, lastIndex);
   // console.log('dataPerPage', dataPerPage);
 
@@ -19,7 +19,7 @@ const Table = ({titles, dataDefault}) => {
 
   const sortColumn = (title) => {
     setData((data) => data.sort((a,b) => (a[title.id] > b[title.id] ? 1: -1)));
-    console.log(data);
+    // console.log(data);
   }
 
   
