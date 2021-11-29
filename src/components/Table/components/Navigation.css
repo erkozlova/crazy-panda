@@ -1,0 +1,7 @@
+.page_number {
+  @apply w-8 h-8 mr-6 text-center border-2 border-opacity-50;
+}
+
+.page_number_active {
+  @apply w-8 h-8 mr-6 text-center border-2 bg-gray-100;
+}

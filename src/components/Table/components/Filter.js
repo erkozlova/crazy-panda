@@ -1,11 +1,9 @@
-import React from 'react';
+import React from "react";
 
-const Filter = () => {
-  return (
-    <div >
-      <input></input>
-    </div>
-  );
-}
+const Filter = () => (
+  <div>
+    <input></input>
+  </div>
+);
 
 export default Filter;
