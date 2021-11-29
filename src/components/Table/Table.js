@@ -4,22 +4,40 @@ import Navigation from './components/Navigation';
 import Main from './components/Main';
 
 const Table = ({titles, dataDefault}) => {
+  const sortFlagDefault = titles.reduce((prev, curr) => {
+    prev[curr.id] = 1;
+    return prev;
+  },{});
+
   const [currentPage, setCurrentPage] = useState(1);
   const [data, setData] = useState(dataDefault);
-  const itemsPerPage = 30;
+  const [sortFlag, setSortFlag] = useState(sortFlagDefault);
+
+  const itemsPerPage = 10;
   const lastIndex = currentPage * itemsPerPage;
   const firstIndex = lastIndex - itemsPerPage;
-  // console.log(data, lastIndex, firstIndex);
   const dataPerPage = data.slice(firstIndex, lastIndex);
-  // console.log('dataPerPage', dataPerPage);
 
   const navigate = (pageNumber) => {
     setCurrentPage(pageNumber); 
   };
 
   const sortColumn = (title) => {
-    setData((data) => data.sort((a,b) => (a[title.id] > b[title.id] ? 1: -1)));
-    // console.log(data);
+    switch(sortFlag[title.id]) {
+      case 0: 
+        setData(dataDefault);
+        setSortFlag((sortFlag) => { return {...sortFlag, [title.id]: 1};});
+        break;
+      case 1:
+        setData((data) => [...data].sort(title.sorter));
+        setSortFlag((sortFlag) => { return {...sortFlag, [title.id]: -1};});
+        break;
+      case -1: 
+        setData((data) => [...data].sort(title.sorter).reverse());
+        setSortFlag((sortFlag) => { return {...sortFlag, [title.id]: 0};});
+        break;
+      default:
+    };
   }
 
   
@@ -27,7 +45,7 @@ const Table = ({titles, dataDefault}) => {
     <div className='mt-6 mb-16'>
       <Titles titles={titles} sortColumn={sortColumn}/>
       <Main dataPerPage={dataPerPage} titles={titles}/>
-      <Navigation count={Math.ceil(data.length/itemsPerPage)} navigate={navigate} />
+      <Navigation count={Math.ceil(data.length/itemsPerPage)} navigate={navigate} currentPage={currentPage}/>
     </div>
   );
 

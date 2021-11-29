@@ -1,46 +1,46 @@
 export const TITLE_FIRST = [
-  { title: "Номер", id: "numberIndex" },
-  { title: "Имя", id: "nameIndex" },
-  { title: "Фамилия", id: "surnameIndex" },
-  { title: "Возраст", id: "ageIndex" },
+  { title: "Номер", id: "numberIndex", sorter: (a,b) => (a.numberIndex > b.numberIndex? 1: -1)},
+  { title: "Имя", id: "nameIndex", sorter: (a,b) => (a['nameIndex'].toLowerCase() > b['nameIndex'].toLowerCase() ? 1: -1) },
+  { title: "Фамилия", id: "surnameIndex", sorter: (a,b) => (a['surnameIndex'].toLowerCase() > b['surnameIndex'].toLowerCase() ? 1: -1) },
+  { title: "Возраст", id: "ageIndex", sorter: (a,b) => (a.ageIndex - b.ageIndex)},
 ];
 
 export const DATA_FIRST = [
   {
     numberIndex: 1,
     nameIndex: "Zak",
-    surnameIndex: "surname",
-    ageIndex: 10,
+    surnameIndex: "Mnname",
+    ageIndex: 16,
   },
   {
     numberIndex: 2,
     nameIndex: "Anna",
-    surnameIndex: "surname",
-    ageIndex: 10,
+    surnameIndex: "Zaname",
+    ageIndex: 1,
   },
   {
     numberIndex: 3,
     nameIndex: "Kris",
-    surnameIndex: "surname",
-    ageIndex: 10,
+    surnameIndex: "Annname",
+    ageIndex: 8,
   },
   {
     numberIndex: 4,
     nameIndex: "Boris",
-    surnameIndex: "surname",
-    ageIndex: 10,
+    surnameIndex: "borname",
+    ageIndex: 37,
   },
   {
     numberIndex: 5,
     nameIndex: "Peter",
-    surnameIndex: "surname",
-    ageIndex: 10,
+    surnameIndex: "Lirname",
+    ageIndex: 26,
   },
   {
     numberIndex: 6,
     nameIndex: "Lisa",
-    surnameIndex: "surname",
-    ageIndex: 10,
+    surnameIndex: "pername",
+    ageIndex: 16,
   },
   {
     numberIndex: 7,
@@ -52,13 +52,13 @@ export const DATA_FIRST = [
     numberIndex: 8,
     nameIndex: "name",
     surnameIndex: "surname",
-    ageIndex: 10,
+    ageIndex: 19,
   },
   {
     numberIndex: 9,
     nameIndex: "name",
     surnameIndex: "surname",
-    ageIndex: 10,
+    ageIndex: 2,
   },
   {
     numberIndex: 10,
