@@ -1,12 +1,15 @@
 export const TITLE_FIRST = [
   { title: "Номер", id: "numberIndex", sorter: (a,b) => (a.numberIndex > b.numberIndex? 1: -1)},
+  // TODO: Зачем здесь бесполезное обращение a["nameIndex"]? Почему не a.nameIndex?
   { title: "Имя", id: "nameIndex", sorter: (a,b) => (a['nameIndex'].toLowerCase() > b['nameIndex'].toLowerCase() ? 1: -1) },
+  // TODO: Зачем здесь бесполезное обращение a["surnameIndex"]? Почему не a.surnameIndex?
   { title: "Фамилия", id: "surnameIndex", sorter: (a,b) => (a['surnameIndex'].toLowerCase() > b['surnameIndex'].toLowerCase() ? 1: -1) },
   { title: "Возраст", id: "ageIndex", sorter: (a,b) => (a.ageIndex - b.ageIndex)},
 ];
 
 export const DATA_FIRST = [
   {
+    // TODO: Зачем у каждой переменной есть постфикс Index? Какой в нем смысл?
     numberIndex: 1,
     nameIndex: "Zak",
     surnameIndex: "Mnname",
