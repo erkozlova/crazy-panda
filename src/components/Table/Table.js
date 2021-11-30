@@ -56,8 +56,10 @@ const Table = ({ titles, dataDefault }) => {
 
   return (
     <div className="mt-6 mb-16">
-      <Titles titles={titles} sortColumn={sortColumn} />
-      <Main dataPerPage={dataPerPage} titles={titles} />
+      <table className="w-full mx-auto">
+        <Titles titles={titles} sortColumn={sortColumn} />
+        <Main dataPerPage={dataPerPage} titles={titles} />
+      </table>
       <Navigation
         count={Math.ceil(data.length / ITEMS_PER_PAGE)}
         navigate={navigate}
