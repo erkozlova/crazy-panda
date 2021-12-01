@@ -14,9 +14,9 @@ type Props = {
     key: string;
     sort: number;
   }[];
-}
+};
 
-const Main:FC<Props> = ({dataPerPage, titles}) => (
+const Main: FC<Props> = ({ dataPerPage, titles }) => (
   <tbody>
     {dataPerPage.map((item) => (
       <Item item={item} titles={titles} key={'Item' + item.number} />

@@ -3,12 +3,12 @@ import { numbersArrayCreate } from '../../utils/numbersArrayCreate';
 import './Navigation.css';
 
 type Props = {
-  count: number,
-  navigate: (number:number) => void,
-  currentPage: number
-}
+  count: number;
+  navigate: (number: number) => void;
+  currentPage: number;
+};
 
-const Navigation:FC<Props> = ({ count, navigate, currentPage }) => {
+const Navigation: FC<Props> = ({ count, navigate, currentPage }) => {
   const numbers = useMemo(
     () => numbersArrayCreate(count, currentPage),
     [count, currentPage]

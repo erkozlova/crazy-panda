@@ -1,4 +1,4 @@
-export const numbersArrayCreate = (pagesCount:number, currentPage:number) => {
+export const numbersArrayCreate = (pagesCount: number, currentPage: number) => {
   let pages: number[] = [];
   if (pagesCount > 5) {
     if (currentPage >= pagesCount - 2) {

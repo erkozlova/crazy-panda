@@ -6,7 +6,7 @@ type Props = {
     title: string;
     id: string;
     key: string;
-    sorter: (a:unknown, b:unknown) => number;
+    sorter: (a: unknown, b: unknown) => number;
   }[];
   sortColumn: any;
 };
