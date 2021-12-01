@@ -1,8 +1,14 @@
-import React, { useMemo } from "react";
-import { numbersArrayCreate } from "../../utils/numbersArrayCreate";
-import "./Navigation.css";
+import React, { FC, useMemo } from 'react';
+import { numbersArrayCreate } from '../../utils/numbersArrayCreate';
+import './Navigation.css';
 
-const Navigation = ({ count, navigate, currentPage }) => {
+type Props = {
+  count: number,
+  navigate: (number:number) => void,
+  currentPage: number
+}
+
+const Navigation:FC<Props> = ({ count, navigate, currentPage }) => {
   const numbers = useMemo(
     () => numbersArrayCreate(count, currentPage),
     [count, currentPage]
@@ -14,10 +20,10 @@ const Navigation = ({ count, navigate, currentPage }) => {
         {numbers.map((number) => (
           <button
             className={
-              currentPage === number ? "page_number_active" : "page_number"
+              currentPage === number ? 'page_number_active' : 'page_number'
             }
             onClick={() => navigate(number)}
-            key={"navigation" + number}
+            key={'navigation' + number}
           >
             {number}
           </button>

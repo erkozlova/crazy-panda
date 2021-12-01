@@ -1,17 +1,32 @@
-import React, { useCallback, useMemo, useState } from "react";
-import Titles from "./components/Titles";
-import Navigation from "./components/Navigation";
-import Main from "./components/Main";
-import { ITEMS_PER_PAGE } from "../utils/constants";
+import React, { FC, useCallback, useMemo, useState } from 'react';
+import Titles from './components/Titles';
+import Navigation from './components/Navigation';
+import Main from './components/Main';
+import { ITEMS_PER_PAGE } from '../utils/constants';
 
-const Table = ({ titles, dataDefault }) => {
+type Props = {
+  titles: {
+    title: string;
+    id: string;
+    key: string;
+    sorter: (a: unknown, b: unknown) => number;
+  }[];
+  dataDefault: {
+    number: number;
+    name: string;
+    surname: string;
+    age: number;
+  }[];
+};
+
+const Table: FC<Props> = ({ titles, dataDefault }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [data, setData] = useState(dataDefault);
   const [sortFlag, setSortFlag] = useState(() =>
     titles.reduce((prev, curr) => {
       prev[curr.id] = 1;
       return prev;
-    }, {})
+    }, {} as Record<string, 0 | 1 | -1>)
   );
 
   const dataPerPage = useMemo(

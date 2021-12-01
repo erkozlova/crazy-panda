@@ -1,7 +1,17 @@
-import React from "react";
-import filter from "../../../filter.svg";
+import React, { FC } from 'react';
+import filter from '../../../filter.svg';
 
-const Titles = ({ titles, sortColumn }) => (
+type Props = {
+  titles: {
+    title: string;
+    id: string;
+    key: string;
+    sorter: (a:unknown, b:unknown) => number;
+  }[];
+  sortColumn: any;
+};
+
+const Titles: FC<Props> = ({ titles, sortColumn }) => (
   <thead>
     <tr className="m-auto w-2/3 flex justify-around bg-gray-100 border-b-2">
       {titles.map((item) => (
