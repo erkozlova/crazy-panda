@@ -1,17 +1,14 @@
 import React, { FC } from 'react';
 
+type Element = { number: number; name: string; surname: string; age: number };
+
 type Props = {
-  item: {
-    number: number;
-    name: string;
-    surname: string;
-    age: number;
-  };
+  item: Record<string, number | string>;
   titles: {
     title: string;
     id: string;
     key: string;
-    sort: number;
+    sorter: (a:Element, b:Element) => number;
   }[];
 };
 

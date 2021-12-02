@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import Item from './Item';
 
+type Element = { number: number; name: string; surname: string; age: number };
+
 type Props = {
   dataPerPage: {
     number: number;
@@ -12,7 +14,7 @@ type Props = {
     title: string;
     id: string;
     key: string;
-    sort: number;
+    sorter: (a:Element, b:Element) => number;
   }[];
 };
 

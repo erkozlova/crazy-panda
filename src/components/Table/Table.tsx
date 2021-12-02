@@ -4,12 +4,14 @@ import Navigation from './components/Navigation';
 import Main from './components/Main';
 import { ITEMS_PER_PAGE } from '../utils/constants';
 
+type Element = { number: number; name: string; surname: string; age: number };
+
 type Props = {
   titles: {
     title: string;
     id: string;
     key: string;
-    sorter: (a: unknown, b: unknown) => number;
+    sorter: (a: Element, b: Element) => number;
   }[];
   dataDefault: {
     number: number;
