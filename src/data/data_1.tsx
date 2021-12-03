@@ -1,31 +1,31 @@
-type Element = { number: number; name: string; surname: string; age: number };
+type sortItem = { number: number; name: string; surname: string; age: number };
 
 export const TITLE_FIRST = [
   {
     title: 'Номер',
     id: 'number',
     key: 'title-number',
-    sorter: (a: Element, b: Element): number => (a.number > b.number ? 1 : -1),
+    sorter: (a: sortItem, b: sortItem): number => (a.number > b.number ? 1 : -1),
   },
   {
     title: 'Имя',
     id: 'name',
     key: 'title-name',
-    sorter: (a: Element, b: Element): number =>
+    sorter: (a: sortItem, b: sortItem): number =>
       a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1,
   },
   {
     title: 'Фамилия',
     id: 'surname',
     key: 'title-surname',
-    sorter: (a: Element, b: Element): number =>
+    sorter: (a: sortItem, b: sortItem): number =>
       a.surname.toLowerCase() > b.surname.toLowerCase() ? 1 : -1,
   },
   {
     title: 'Возраст',
     id: 'age',
     key: 'title-age',
-    sorter: (a: Element, b: Element): number => a.age - b.age,
+    sorter: (a: sortItem, b: sortItem): number => a.age - b.age,
   },
 ];
 

@@ -3,15 +3,14 @@ import Titles from './components/Titles';
 import Navigation from './components/Navigation';
 import Main from './components/Main';
 import { ITEMS_PER_PAGE } from '../utils/constants';
-
-type Element = { number: number; name: string; surname: string; age: number };
+import Filter from './components/Filter';
 
 type Props = {
   titles: {
     title: string;
     id: string;
     key: string;
-    sorter: (a: Element, b: Element) => number;
+    sorter: (a: unknown, b: unknown) => number;
   }[];
   dataDefault: {
     number: number;
@@ -77,6 +76,7 @@ const Table: FC<Props> = ({ titles, dataDefault }) => {
         <Titles titles={titles} sortColumn={sortColumn} />
         <Main dataPerPage={dataPerPage} titles={titles} />
       </table>
+      <Filter />
       <Navigation
         count={Math.ceil(data.length / ITEMS_PER_PAGE)}
         navigate={navigate}

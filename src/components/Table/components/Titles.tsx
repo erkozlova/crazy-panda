@@ -1,18 +1,16 @@
 import React, { FC } from 'react';
 import filter from '../../../filter.svg';
 
-type Element = { number: number; name: string; surname: string; age: number };
-
 type Title = {
   title: string;
   id: string;
   key: string;
-  sorter: (a: Element, b: Element) => number;
+  sorter: (a: unknown, b: unknown) => number;
 };
 
 type Props = {
   titles: Title[];
-  sortColumn: (titles:Title) => void;
+  sortColumn: (titles: Title) => void;
 };
 
 const Titles: FC<Props> = ({ titles, sortColumn }) => (
